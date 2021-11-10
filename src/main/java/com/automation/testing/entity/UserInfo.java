@@ -28,7 +28,7 @@ public class UserInfo extends Model {
     /**
      * 用户id
      */
-//    @TableId(value = "user_id")
+    @TableId(value = "user_id")
     private String userId;
 
     /**
@@ -69,6 +69,6 @@ public class UserInfo extends Model {
     /**
      * 删除标志(0:已删  1:未删-默认)
      */
-    private Integer is_delete;
+    private Integer isDelete;
 
 }

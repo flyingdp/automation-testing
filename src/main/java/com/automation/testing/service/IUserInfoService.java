@@ -23,5 +23,7 @@ public interface IUserInfoService extends IService<UserInfo> {
 
     String updateInfo(UserInfoRequest userInfoRequest);
 
-    List<UserInfo> queryAllInfo(String userId);
+    List<UserInfo> queryAllInfo();
+
+    UserInfo logoutUserByUserId(UserInfoRequest userInfoRequest);
 }

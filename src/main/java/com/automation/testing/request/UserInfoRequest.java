@@ -1,6 +1,5 @@
 package com.automation.testing.request;
 
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;

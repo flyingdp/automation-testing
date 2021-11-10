@@ -3,6 +3,7 @@ package com.automation.testing.response;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -46,6 +47,7 @@ public class UserInfoRsponse implements Serializable {
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
 
     /**
@@ -53,6 +55,12 @@ public class UserInfoRsponse implements Serializable {
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp updateTime;
 
+    /**
+     * 删除标志(0:已删  1:未删-默认)
+     */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer isDelete;
 }

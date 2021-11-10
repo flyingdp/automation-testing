@@ -56,8 +56,24 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     }
 
     @Override
-    public List<UserInfo> queryAllInfo(String userId) {
-//        userInfoMapper.selectList()
-        return null;
+    public List<UserInfo> queryAllInfo() {
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<UserInfo>();
+        wrapper.eq("user_status",1);
+        List<UserInfo> userInfos = userInfoMapper.selectList(wrapper);
+        return userInfos;
+    }
+
+    @Override
+    public  UserInfo logoutUserByUserId(UserInfoRequest userInfoRequest) {
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<UserInfo>();
+        wrapper.eq("user_id",userInfoRequest.getUserId());
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserStatus(0);
+        int update = userInfoMapper.update(userInfo, wrapper);
+
+        QueryWrapper<UserInfo> wrapper1 = new QueryWrapper<UserInfo>();
+        wrapper1.eq("user_id",userInfoRequest.getUserId());
+        UserInfo userInfo1 = userInfoMapper.selectOne(wrapper1);
+        return userInfo1;
     }
 }
