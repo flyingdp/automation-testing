@@ -38,4 +38,4 @@ mybatis-plus:
 
 logging:
     level:
-        com.study.*.mapper: DEBUG
+        com.automation.testing.mapper: DEBUG
