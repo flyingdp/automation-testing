@@ -1,9 +1,6 @@
 package com.automation.testing.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@RequestMapping("/")
@@ -13,5 +10,11 @@ public class IndexController {
     @RequestMapping("/")
     public String index(){
         return "Hello  Docker World !!";
+    }
+
+
+    @RequestMapping("/getUserInfo")
+    public String getUserInfo(@RequestParam(name = "userName")String userName){
+        return "你好 我是"+userName;
     }
 }
